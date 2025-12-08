@@ -2,27 +2,29 @@
 
 
 
-🧠 Multi-Agent Job Screening AI
-
-AI-powered resume–JD matching with red-flag detection, scoring, and automated interview emails.
-
 🚀 Overview
 
-Multi-Agent Job Screening AI is an intelligent, automated recruitment assistant built using:
+Multi-Agent Job Screening AI is an intelligent recruitment assistant designed to automate the resume screening and candidate evaluation process using:
 
-LangGraph (multi-agent orchestration)
+⚙️ LangGraph for orchestrating multiple intelligent agents
 
-Llama 3.3 (Groq) ultra-fast inference
+⚡ Llama 3.3 (Groq) for ultra-fast inference
 
-RAG components for structured extraction
+🧠 RAG components for structured extraction
 
-Streamlit for a clean, interactive UI
+🎨 Streamlit for a clean, interactive UI
 
-Email automation (Gmail App Passwords)
+✉️ Email automation via Gmail App Passwords
 
-It helps companies quickly evaluate resumes, detect potential issues, compute match scores, and even send interview invitations automatically.
+It helps HR teams, companies, and startups:
 
-Perfect for HR teams, recruiters, startups, and screening multiple candidates efficiently.
+Quickly evaluate resumes
+
+Detect potential red flags
+
+Score resume–JD similarity
+
+Automatically invite shortlisted candidates for interviews
 
 🧩 Features
 🔍 1. Resume Extraction Agent
@@ -39,7 +41,7 @@ Experience
 
 📋 2. Job Description Agent
 
-Parses the JD and extracts:
+Parses and extracts:
 
 Required skills
 
@@ -49,7 +51,7 @@ Qualification criteria
 
 🚩 3. Red-Flag Detection Agent
 
-Identifies issues such as:
+Detects issues like:
 
 Job hopping
 
@@ -57,49 +59,49 @@ Employment gaps
 
 Missing education
 
-No proof of claimed skills
+No validation for claimed skills
 
-Grammar or formatting issues
+Grammar/formatting issues
 
 🧑‍💼 4. Recruiter Evaluation Agent
 
 Scores resume vs JD using:
 
-Skills match (30 pts)
+Skills Match – 30 pts
 
-Experience match (50 pts)
+Experience Match – 50 pts
 
-Education relevance (10 pts)
+Education Match – 10 pts
 
-Extra achievements (10 pts)
+Extras (Certifications/Projects) – 10 pts
 
 Generates:
 
 Match score (/100)
 
-Detailed analysis
+Detailed breakdown
 
-Acceptance or rejection recommendation
+Recommendation (Hire / Maybe / Reject)
 
 ✉️ 5. Automated Interview Emails
 
-HR users can input:
+HR users can enter:
 
 Their email
 
-Their app password
+Their App Password
 
-Candidate's email
+Candidate email
 
-And the system sends:
+The system automatically sends:
 
-A professional interview invitation
+A professionally drafted interview email
 
-From the company’s own email address
+Directly from the company's own inbox
 
-🎨 6. Modern UI
+🎨 6. Modern Streamlit UI
 
-Built with Streamlit featuring:
+Includes:
 
 Sidebar configuration
 
@@ -107,16 +109,18 @@ Drag-and-drop uploads
 
 Tabs (Overview, Agents, Workflow)
 
-Mermaid workflow diagram
+Mermaid workflow graph
+
+Dark + professional theme
 
 🛠️ Tech Stack
 Component	Technology
 Multi-Agent Framework	LangGraph
-LLM Backend	Groq API – LLaMA 3.3 70B Versatile
-UI	Streamlit
-Extraction	PyPDFLoader, LangChain
+LLM Backend	Groq API – LLaMA 3.3 70B
+UI Framework	Streamlit
+Parsing & Extraction	LangChain, PyPDFLoader
 Email Automation	smtplib (Gmail App Password)
-Workflow Visualization	Mermaid Graph
+Visualization	Mermaid Graph
 📦 Installation
 1️⃣ Clone the repository
 git clone https://github.com/GargiGogulwar/multi-agent-job-screening-ai.git
@@ -133,29 +137,29 @@ pip install -r requirements.txt
 $env:GROQ_API_KEY = "your_groq_api_key_here"
 
 
-(Email variables are entered inside the app UI — not here.)
+(Email values are entered inside the UI — not here.)
 
 5️⃣ Run the application
 python -m streamlit run app.py
 
 🖥️ Usage Guide
-Step 1 — Upload Resume (PDF)
-Step 2 — Upload or Paste Job Description
-Step 3 — Configure HR email (Optional)
+▶️ Step 1 — Upload Resume (PDF)
+▶️ Step 2 — Upload or paste Job Description
+▶️ Step 3 — Enter HR Email Credentials (optional)
 
 Sender email
 
-App password
+App Password
 
 Candidate email
 
-Step 4 — Run Multi-Agent Screening
+▶️ Step 4 — Click Run Multi-Agent Screening
 
-You will see:
+You will then see:
 
-Extracted candidate information
+Candidate details
 
-Extracted JD data
+JD data
 
 Red flags
 
@@ -163,21 +167,19 @@ Recruiter evaluation
 
 Score
 
-Auto-email send option
+Auto-email option
 
 📈 Multi-Agent Workflow
-
-The app visualizes the following workflow:
-
-Resume Agent ───▶ JD Agent ───┐
-         └────▶ Red-Flag Agent ─▶ Recruiter Agent ─▶ Evaluation
+Resume Agent ──▶ JD Agent ───────┐
+       └─────▶ Red-Flag Agent ──▶ Recruiter Agent ──▶ Evaluation
 
 
-A generated Mermaid graph is displayed in the UI.
+The application generates a Mermaid workflow graph in real-time.
 
 📧 Email Automation (Gmail)
 
-We use Gmail App Passwords, NOT regular login credentials.
+We use Gmail App Passwords, NOT regular Gmail login.
+
 To generate:
 
 Enable 2FA
@@ -186,25 +188,23 @@ Go to: https://myaccount.google.com/apppasswords
 
 Create App Password
 
-Use that password in the Streamlit UI
-
-Your app will securely send emails from your own inbox.
+Enter it in the Streamlit UI
 
 🔐 Security Notes
 
-No email passwords or API keys are stored
+No passwords or API keys are stored in the project
 
-All sensitive data is session-only via Streamlit inputs
+Streamlit only holds email/password during the session
 
-GitHub push-protection prevents accidental key leaks
+GitHub push-protection prevents accidental key uploads
 
 📂 Project Structure
 multi-agent-job-screening-ai/
 │
-├── app.py                 # Streamlit UI + orchestration
-├── multi_agents.py        # All LangGraph agent logic
+├── app.py                 # Streamlit UI + Orchestration
+├── multi_agents.py        # All multi-agent logic
 ├── email_utils.py         # Email sending helper
-├── JD.txt                 # Temporary JD store
-├── Resume.pdf             # Temporary resume storage
-├── assets/                # Screenshots, graphs
-└── README.md
+├── JD.txt                 # JD storage (temporary)
+├── Resume.pdf             # Resume storage (temporary)
+├── assets/                # Screenshots, diagrams
+└── README.md              # Documentation
