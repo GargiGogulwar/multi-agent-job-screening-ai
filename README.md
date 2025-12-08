@@ -95,13 +95,3 @@ The app dynamically generates a **LangGraph workflow diagram**, visually explain
    * Outputs from each agent
    * **Final match score**
    * Recruiter's **reasoned verdict**
-
----
-
-## 📬 Contact
-
-**Haroon Sajid** – *AI Developer & Data Enthusiast*
-- 📧 **Email:** [haroonsajid016@gmail.com](mailto:haroonsajid016@gmail.com)
-- 🌐 **Website:** [haroonsajid.com](https://haroonsajid.com)
-
-> Feel free to reach out for suggestions, feedback, or collaboration!
