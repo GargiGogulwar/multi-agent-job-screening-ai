@@ -2,98 +2,208 @@
 
 
 
-# AI-Powered Resume Matching App
+🧠 Multi-Agent Job Screening AI
+AI-powered resume–JD matching with red-flag detection, scoring, and automated interview emails.
 
-This is a **Streamlit-based application** that leverages a powerful **AI multi-agent workflow** to intelligently **match resumes with job descriptions**. It utilizes modern LLM frameworks like **LangChain**, **LangGraph**, and **Llama 3** (open-source via **Groq**).
+🚀 Overview
 
----
+Multi-Agent Job Screening AI is an intelligent, automated recruitment assistant built using:
 
-## Key Features
+LangGraph (multi-agent orchestration)
 
-* Upload a **resume (PDF)** and a **job description (TXT or plain text)**.
-* Click on **"Match Resume"** to start the AI workflow.
-* The app:
+Llama 3.3 (Groq) ultra-fast inference
 
-  * Displays a **LangGraph workflow diagram** showing connected agents (nodes and edges).
-  * Executes the AI workflow:
+RAG components for structured extraction
 
-    * Shows **individual outputs** from each agent.
-    * Provides a **final verdict** with a **match score**.
-    * Delivers a **detailed explanation** of the decision.
+Streamlit for a clean, interactive UI
 
----
+Email automation (Gmail App Passwords)
 
-## Candidate Score
+It helps companies quickly evaluate resumes, detect potential issues, compute match scores, and even send interview invitations automatically.
 
-The final **Recruiter Agent** evaluates the resume and job description, assigning a **match score out of 100** based on:
+Perfect for HR teams, recruiters, startups, and screening multiple candidates efficiently.
 
-* Resume content
-* Job description alignment
-* External LinkedIn profile validation
+🧩 Features
+🔍 1. Resume Extraction Agent
 
-> This score helps recruiters prioritize candidates efficiently.
+Extracts:
 
----
+Candidate name
 
-## AI Agent Workflow
+Contact details
 
-Here’s an overview of the agents involved and their roles in the system:
+Skills
 
-### 1. **Resume Agent**
+Experience
 
-* Extracts the **candidate’s name** and other key details from the uploaded resume.
+📋 2. Job Description Agent
 
-### 2. **Job Description (JD) Agent**
+Parses the JD and extracts:
 
-* Analyzes the **job description** to extract **key requirements** and expectations.
+Required skills
 
-### 3. **RedFlag Agent**
+Responsibilities
 
-* Analyzes the resume to identify potential issues like job hopping, gaps, skill inconsistencies, missing education, and errors, then returns clear flagged points.
+Qualification criteria
+
+🚩 3. Red-Flag Detection Agent
+
+Identifies issues such as:
+
+Job hopping
+
+Employment gaps
+
+Missing education
+
+No proof of claimed skills
+
+Grammar or formatting issues
+
+🧑‍💼 4. Recruiter Evaluation Agent
+
+Scores resume vs JD using:
+
+Skills match (30 pts)
+
+Experience match (50 pts)
+
+Education relevance (10 pts)
+
+Extra achievements (10 pts)
+
+Generates:
+
+Match score (/100)
+
+Detailed analysis
+
+Acceptance or rejection recommendation
+
+✉️ 5. Automated Interview Emails
+
+HR users can input:
+
+Their email
+
+Their app password
+
+Candidate's email
+
+And the system sends:
+
+A professional interview invitation
+
+From the company’s own email address
+
+🎨 6. Modern UI
+
+Built with Streamlit featuring:
+
+Sidebar configuration
+
+Drag-and-drop uploads
+
+Tabs (Overview, Agents, Workflow)
+
+Mermaid workflow diagram
+
+🛠️ Tech Stack
+Component	Technology
+Multi-Agent Framework	LangGraph
+LLM Backend	Groq API – LLaMA 3.3 70B Versatile
+UI	Streamlit
+Extraction	PyPDFLoader, LangChain
+Email Automation	smtplib (Gmail App Password)
+Workflow Visualization	Mermaid Graph
+📦 Installation
+1️⃣ Clone the repository
+git clone https://github.com/GargiGogulwar/multi-agent-job-screening-ai.git
+cd multi-agent-job-screening-ai
+
+2️⃣ Create a virtual environment
+python -m venv .venv
+.venv\Scripts\activate
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Set your environment variables (PowerShell)
+$env:GROQ_API_KEY = "your_groq_api_key_here"
 
 
-### 4. **Recruiter Agent (Final Decision Maker)**
+(Email variables are entered inside the app UI — not here.)
 
-* Combines insights from:
+5️⃣ Run the application
+python -m streamlit run app.py
 
-  * JD Agent
-  * Redflag agent
-  * Resume file
-* Produces:
+🖥️ Usage Guide
+Step 1 — Upload Resume (PDF)
+Step 2 — Upload or Paste Job Description
+Step 3 — Configure HR email (Optional)
 
-  * A **detailed evaluation**
-  * A **match score (out of 100)**
-  * The **final recommendation**
+Sender email
 
----
+App password
 
-## Technologies Used
+Candidate email
 
-* **Python**
-* **Streamlit**
-* **LangChain + LangGraph**
-* **Llama 3 (via Groq API)**
-* **Hugging Face Instruct Embeddings**
-* **Chroma DB (vector store)**
-* **PyPDFLoader**
-* **BeautifulSoup + Requests**
+Step 4 — Run Multi-Agent Screening
 
----
+You will see:
 
-## Visual Workflow
+Extracted candidate information
 
-The app dynamically generates a **LangGraph workflow diagram**, visually explaining the data flow between all agents. This provides complete transparency and traceability.
+Extracted JD data
+
+Red flags
+
+Recruiter evaluation
+
+Score
+
+Auto-email send option
+
+📈 Multi-Agent Workflow
+
+The app visualizes the following workflow:
+
+Resume Agent ───▶ JD Agent ───┐
+         └────▶ Red-Flag Agent ─▶ Recruiter Agent ─▶ Evaluation
 
 
-## Example Use Case
+A generated Mermaid graph is displayed in the UI.
 
-1. Upload a candidate’s **resume (PDF)**.
-2. Upload or paste the **job description (TXT)**.
-3. Click **"Match Resume"**.
-4. Instantly get:
+📧 Email Automation (Gmail)
 
-   * Agent workflow diagram
-   * Outputs from each agent
-   * **Final match score**
-   * Recruiter's **reasoned verdict**
-   * send email based on threshold score matching
+We use Gmail App Passwords, NOT regular login credentials.
+To generate:
+
+Enable 2FA
+
+Go to: https://myaccount.google.com/apppasswords
+
+Create App Password
+
+Use that password in the Streamlit UI
+
+Your app will securely send emails from your own inbox.
+
+🔐 Security Notes
+
+No email passwords or API keys are stored
+
+All sensitive data is session-only via Streamlit inputs
+
+GitHub push-protection prevents accidental key leaks
+
+📂 Project Structure
+multi-agent-job-screening-ai/
+│
+├── app.py                 # Streamlit UI + orchestration
+├── multi_agents.py        # All LangGraph agent logic
+├── email_utils.py         # Email sending helper
+├── JD.txt                 # Temporary JD store
+├── Resume.pdf             # Temporary resume storage
+├── assets/                # Screenshots, graphs
+└── README.md
