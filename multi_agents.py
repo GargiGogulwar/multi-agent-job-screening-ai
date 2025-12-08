@@ -3,6 +3,7 @@ warnings.filterwarnings("ignore")
 
 import operator
 import os
+import re   
 from typing import Annotated, TypedDict, Sequence
 
 from dotenv import load_dotenv
@@ -193,4 +194,19 @@ Job Description (from previous agents):
     except Exception as ex:
         answer = f"Error in recruit agent: {ex}"
 
-    return {"messages": [answer]}
+    match = re.search(r'(\d+)\s*/\s*100', answer)
+    if match:
+        score = int(match.group(1))
+    else:
+        # Fallback: look for "score: 82"
+        match2 = re.search(r'[Ss]core[^0-9]*(\d+)', answer)
+        if match2:
+            score = int(match2.group(1))
+        else:
+            score = 0  # default if nothing found
+
+    # We keep the original message AND also return the score
+    return {
+        "messages": [answer],
+        "score": score
+    }
