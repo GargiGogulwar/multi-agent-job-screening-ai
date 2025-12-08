@@ -95,3 +95,4 @@ The app dynamically generates a **LangGraph workflow diagram**, visually explain
    * Outputs from each agent
    * **Final match score**
    * Recruiter's **reasoned verdict**
+   * send email based on threshold score matching
