@@ -1,6 +1,7 @@
 <img width="2229" height="1197" alt="image" src="https://github.com/user-attachments/assets/98805a4a-91b0-4291-a649-48386b3c001c" />
 
-
+DEMO OF APP :
+https://multi-agent-job-screening-ai-5czmh3wsbombegjvrpw792.streamlit.app/
 
 🚀 Overview
 
