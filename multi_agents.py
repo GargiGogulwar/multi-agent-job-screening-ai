@@ -3,6 +3,7 @@ warnings.filterwarnings("ignore")
 
 import operator
 import os
+import streamlit as st
 import re   
 from typing import Annotated, TypedDict, Sequence
 
@@ -17,15 +18,23 @@ from langchain_community.document_loaders import PyPDFLoader
 # Load variables from .env if present (optional)
 load_dotenv()
 
-# Read Groq API key from environment
+# Try to read from environment (local) OR from Streamlit secrets (cloud)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+# If not found in env, try Streamlit Cloud secrets
+if not GROQ_API_KEY:
+    try:
+        GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", None)
+    except Exception:
+        GROQ_API_KEY = None
 
 if not GROQ_API_KEY:
     # Clear error if the key is missing
     raise RuntimeError(
         "GROQ_API_KEY is not set.\n"
-        "Set it in PowerShell first, for example:\n"
-        '$env:GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE"'
+        "- Locally: set it in PowerShell, e.g.\n"
+        '  $env:GROQ_API_KEY = "YOUR_GROQ_API_KEY_HERE"\n'
+        "- On Streamlit Cloud: add it in Settings → Secrets as GROQ_API_KEY."
     )
 
 
