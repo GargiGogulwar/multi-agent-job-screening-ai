@@ -1,4 +1,5 @@
-![Resume Screening Assistant](screenshot.png)
+<img width="2229" height="1197" alt="image" src="https://github.com/user-attachments/assets/98805a4a-91b0-4291-a649-48386b3c001c" />
+
 
 
 # AI-Powered Resume Matching App
