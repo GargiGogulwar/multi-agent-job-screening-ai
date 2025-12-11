@@ -122,7 +122,7 @@ $env:GROQ_API_KEY = "your_groq_api_key_here"
 python -m streamlit run app.py
 ```
 
-##🖥️ Usage Guide
+## 🖥️ Usage Guide
 -Step 1 — Upload Resume (PDF)
 -Step 2 — Upload or Paste Job Description
 -Step 3 — Enter HR Email Credentials (Optional)
@@ -147,7 +147,7 @@ Candidate Email
 
 -Auto-Email Option
 
-##📧 Email Automation (Gmail)
+## 📧 Email Automation (Gmail)
 
 -Uses Gmail App Passwords, not regular login.
 
