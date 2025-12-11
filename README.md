@@ -1,211 +1,163 @@
 <img width="2229" height="1197" alt="image" src="https://github.com/user-attachments/assets/98805a4a-91b0-4291-a649-48386b3c001c" />
 
-DEMO OF APP :
+
+# 🚀 Multi-Agent Job Screening AI
+
+**Live Demo:**  
 https://multi-agent-job-screening-ai-5czmh3wsbombegjvrpw792.streamlit.app/
 
-🚀 Overview
+Multi-Agent Job Screening AI is an intelligent recruitment assistant that automates resume screening, candidate evaluation, and interview communication using a powerful multi-agent architecture.
 
-Multi-Agent Job Screening AI is an intelligent recruitment assistant designed to automate the resume screening and candidate evaluation process using:
+---
 
-⚙️ LangGraph for orchestrating multiple intelligent agents
+## 🧠 Powered By
+- **LangGraph** – Multi-agent orchestration  
+- **LLaMA 3.3 (Groq)** – Ultra-fast inference  
+- **LangChain + RAG** – Structured information extraction  
+- **Streamlit** – Modern UI  
+- **Gmail App Passwords** – Secure email automation  
 
-⚡ Llama 3.3 (Groq) for ultra-fast inference
+---
 
-🧠 RAG components for structured extraction
+# 🧩 Features
 
-🎨 Streamlit for a clean, interactive UI
+## 🔍 1. Resume Extraction Agent
+Extracts structured information such as:
+- Candidate Name  
+- Contact Information  
+- Skills  
+- Experience, Projects  
 
-✉️ Email automation via Gmail App Passwords
+---
 
-It helps HR teams, companies, and startups:
+## 📋 2. Job Description Agent
+Parses:
+- Required Skills  
+- Responsibilities  
+- Qualifications  
+- Role Expectations  
 
-Quickly evaluate resumes
+---
 
-Detect potential red flags
+## 🚩 3. Red-Flag Detection Agent
+Identifies:
+- Job Hopping  
+- Employment Gaps  
+- Missing Education  
+- Skill Mismatch  
+- Poor Formatting / Grammar  
 
-Score resume–JD similarity
+---
 
-Automatically invite shortlisted candidates for interviews
-
-🧩 Features
-🔍 1. Resume Extraction Agent
-
-Extracts:
-
-Candidate name
-
-Contact details
-
-Skills
-
-Experience
-
-📋 2. Job Description Agent
-
-Parses and extracts:
-
-Required skills
-
-Responsibilities
-
-Qualification criteria
-
-🚩 3. Red-Flag Detection Agent
-
-Detects issues like:
-
-Job hopping
-
-Employment gaps
-
-Missing education
-
-No validation for claimed skills
-
-Grammar/formatting issues
-
-🧑‍💼 4. Recruiter Evaluation Agent
-
+## 🧑‍💼 4. Recruiter Evaluation Agent
 Scores resume vs JD using:
-
-Skills Match – 30 pts
-
-Experience Match – 50 pts
-
-Education Match – 10 pts
-
-Extras (Certifications/Projects) – 10 pts
+- **Skills Match – 30 pts**  
+- **Experience Match – 50 pts**  
+- **Education – 10 pts**  
+- **Extras (Certifications/Projects) – 10 pts**
 
 Generates:
+- Match Score (/100)  
+- Skill & Experience Breakdown  
+- Final Recommendation: *Hire / Maybe / Reject*  
 
-Match score (/100)
+---
 
-Detailed breakdown
+## ✉️ 5. Automated Interview Emails
+HR users can input:
+- Sender Email  
+- Gmail App Password  
+- Candidate Email  
 
-Recommendation (Hire / Maybe / Reject)
+System sends:
+- Automatically drafted professional interview email  
 
-✉️ 5. Automated Interview Emails
+---
 
-HR users can enter:
-
-Their email
-
-Their App Password
-
-Candidate email
-
-The system automatically sends:
-
-A professionally drafted interview email
-
-Directly from the company's own inbox
-
-🎨 6. Modern Streamlit UI
-
+## 🎨 6. Modern Streamlit UI
 Includes:
+- Sidebar Controls  
+- Drag-and-Drop Uploads  
+- Tabs: Overview, Agents, Workflow, Output  
+- Mermaid Workflow Graph  
+- Clean Dark Theme  
 
-Sidebar configuration
+---
 
-Drag-and-drop uploads
+# 🛠️ Tech Stack
 
-Tabs (Overview, Agents, Workflow)
+| Component | Technology |
+|----------|------------|
+| Multi-Agent Framework | LangGraph |
+| LLM Backend | Groq API (LLaMA 3.3 70B) |
+| UI | Streamlit |
+| Extraction | LangChain, PyPDFLoader |
+| Email | smtplib (Gmail App Passwords) |
+| Visualization | Mermaid Graph |
 
-Mermaid workflow graph
+---
 
-Dark + professional theme
+# 📦 Installation
 
-🛠️ Tech Stack
-Component	Technology
-Multi-Agent Framework	LangGraph
-LLM Backend	Groq API – LLaMA 3.3 70B
-UI Framework	Streamlit
-Parsing & Extraction	LangChain, PyPDFLoader
-Email Automation	smtplib (Gmail App Password)
-Visualization	Mermaid Graph
-📦 Installation
-1️⃣ Clone the repository
+### 1️⃣ Clone the Repository
+```sh
 git clone https://github.com/GargiGogulwar/multi-agent-job-screening-ai.git
 cd multi-agent-job-screening-ai
-
-2️⃣ Create a virtual environment
+```
+### 2️⃣ Create a Virtual Environment
+```
 python -m venv .venv
 .venv\Scripts\activate
-
-3️⃣ Install dependencies
+```
+### 3️⃣ Install Dependencies
+```
 pip install -r requirements.txt
-
-4️⃣ Set your environment variables (PowerShell)
+```
+### 4️⃣ Set Environment Variables (PowerShell)
+```
 $env:GROQ_API_KEY = "your_groq_api_key_here"
-
-
-(Email values are entered inside the UI — not here.)
-
-5️⃣ Run the application
+```
+### 5️⃣ Run the Application
+```
 python -m streamlit run app.py
+```
 
-🖥️ Usage Guide
-▶️ Step 1 — Upload Resume (PDF)
-▶️ Step 2 — Upload or paste Job Description
-▶️ Step 3 — Enter HR Email Credentials (optional)
+##🖥️ Usage Guide
+-Step 1 — Upload Resume (PDF)
+-Step 2 — Upload or Paste Job Description
+-Step 3 — Enter HR Email Credentials (Optional)
 
-Sender email
+Sender Email
 
 App Password
 
-Candidate email
+Candidate Email
 
-▶️ Step 4 — Click Run Multi-Agent Screening
+-Step 4 — Run Multi-Agent Screening
 
-You will then see:
+##Outputs include:
 
-Candidate details
+-Extracted Resume Data
 
-JD data
+-JD Parsing
 
-Red flags
+-Red Flags
 
-Recruiter evaluation
+-Evaluation Scores
 
-Score
+-Auto-Email Option
 
-Auto-email option
+##📧 Email Automation (Gmail)
 
-📈 Multi-Agent Workflow
-Resume Agent ──▶ JD Agent ───────┐
-       └─────▶ Red-Flag Agent ──▶ Recruiter Agent ──▶ Evaluation
+-Uses Gmail App Passwords, not regular login.
 
+-Steps to generate:
 
-The application generates a Mermaid workflow graph in real-time.
+-Enable 2FA
 
-📧 Email Automation (Gmail)
+-Visit: https://myaccount.google.com/apppasswords
 
-We use Gmail App Passwords, NOT regular Gmail login.
+-Create App Password
 
-To generate:
+-Enter it in Streamlit UI
 
-Enable 2FA
-
-Go to: https://myaccount.google.com/apppasswords
-
-Create App Password
-
-Enter it in the Streamlit UI
-
-🔐 Security Notes
-
-No passwords or API keys are stored in the project
-
-Streamlit only holds email/password during the session
-
-GitHub push-protection prevents accidental key uploads
-
-📂 Project Structure
-multi-agent-job-screening-ai/
-│
-├── app.py                 # Streamlit UI + Orchestration
-├── multi_agents.py        # All multi-agent logic
-├── email_utils.py         # Email sending helper
-├── JD.txt                 # JD storage (temporary)
-├── Resume.pdf             # Resume storage (temporary)
-├── assets/                # Screenshots, diagrams
-└── README.md              # Documentation
