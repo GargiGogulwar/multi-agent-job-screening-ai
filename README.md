@@ -124,7 +124,9 @@ python -m streamlit run app.py
 
 ## 🖥️ Usage Guide
 -Step 1 — Upload Resume (PDF)
+
 -Step 2 — Upload or Paste Job Description
+
 -Step 3 — Enter HR Email Credentials (Optional)
 
 Sender Email
@@ -135,7 +137,7 @@ Candidate Email
 
 -Step 4 — Run Multi-Agent Screening
 
-##Outputs include:
+## Outputs include:
 
 -Extracted Resume Data
 
